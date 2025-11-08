@@ -73,6 +73,8 @@ abstract class CameraFragment : BaseFragment(), ICameraStateCallBack {
         }?.also { view->
             getCameraViewContainer()?.apply {
                 removeAllViews()
+                val parent = view.parent as? ViewGroup
+                parent?.removeView(view)
                 addView(view, getViewLayoutParams(this))
             }
         }
